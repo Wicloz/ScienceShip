@@ -23,9 +23,10 @@ seba:minifiers-autoprefixer
 kadira:flow-router
 kadira:blaze-layout
 zimme:active-route
-useraccounts:bootstrap
+useraccounts:materialize
 useraccounts:flow-routing
 arillo:flow-router-helpers
 spiderable
 tomwasd:flow-router-seo
 tomwasd:flow-router-autoscroll
+materialize:materialize

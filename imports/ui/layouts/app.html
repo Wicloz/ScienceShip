@@ -1,6 +1,9 @@
 <template name="layouts_app">
-  {{> components_navbar}}
-  <div class="content container-fluid">
+  <header>
+    {{> components_topnav}}
+    {{> components_sidenav}}
+  </header>
+  <main>
     {{> Template.dynamic template=content}}
-  </div>
+  </main>
 </template>
