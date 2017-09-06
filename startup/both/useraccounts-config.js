@@ -12,17 +12,23 @@ AccountsTemplates.configure({
   enforceEmailVerification: true,
   sendVerificationEmail: true,
   showForgotPasswordLink: true,
-  showResendVerificationEmailLink: true
+  showResendVerificationEmailLink: true,
+  continuousValidation: true,
+  negativeValidation: true,
+  positiveValidation: true,
+  negativeFeedback: true,
+  positiveFeedback: true,
+  showValidating: true
 });
 
 if (Meteor.isClient) {
   AccountsTemplates.configureRoute('changePwd');
   AccountsTemplates.configureRoute('forgotPwd');
-  AccountsTemplates.configureRoute('resendVerificationEmail');
   AccountsTemplates.configureRoute('resetPwd');
   AccountsTemplates.configureRoute('signIn');
   AccountsTemplates.configureRoute('signUp');
   AccountsTemplates.configureRoute('verifyEmail');
+  AccountsTemplates.configureRoute('resendVerificationEmail');
 
   FlowRouter.route('/logout', {
     name: 'logout',

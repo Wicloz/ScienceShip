@@ -20,11 +20,11 @@
             <a class="nav-link" href="{{pathFor 'account'}}">Manage Account</a>
           </li>
         {{else}}
-          <li class="nav-item {{isActiveRoute 'login'}}">
-            <a class="nav-link" href="{{pathFor 'login'}}">Log In</a>
+          <li class="nav-item {{isActiveRoute 'atSignIn'}}">
+            <a class="nav-link" href="{{pathFor 'atSignIn'}}">Sign In</a>
           </li>
-          <li class="nav-item {{isActiveRoute 'register'}}">
-            <a class="nav-link" href="{{pathFor 'register'}}">Sign Up</a>
+          <li class="nav-item {{isActiveRoute 'atSignUp'}}">
+            <a class="nav-link" href="{{pathFor 'atSignUp'}}">Register</a>
           </li>
         {{/if}}
       </ul>
