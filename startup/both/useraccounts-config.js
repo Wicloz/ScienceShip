@@ -1,11 +1,11 @@
 if (Meteor.isClient) {
-  import '../../imports/ui/layouts/app.js';
-  import '../../imports/ui/accounts/authpage.js';
+  import '/imports/ui/layouts/app.js';
+  import '/imports/ui/accounts/authpage.js';
 }
 
 AccountsTemplates.configure({
-  defaultTemplate: 'authpage',
-  defaultLayout: 'app',
+  defaultTemplate: 'accounts_authpage',
+  defaultLayout: 'layouts_app',
   defaultLayoutRegions: {},
   defaultContentRegion: 'content',
   enablePasswordChange: true,

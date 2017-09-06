@@ -1,3 +1,3 @@
 import './app.html';
 
-import '../components/navbar';
+import '/imports/ui/components/navbar';
