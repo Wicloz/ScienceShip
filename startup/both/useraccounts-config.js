@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
-  import '/imports/ui/layouts/app.js';
-  import '/imports/ui/accounts/authpage.js';
+  require('/imports/ui/layouts/app.js');
+  require('/imports/ui/accounts/authpage.js');
 }
 
 AccountsTemplates.configure({

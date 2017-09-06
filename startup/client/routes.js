@@ -1,7 +1,7 @@
 FlowRouter.notFound = {
   action() {
-    import '/imports/ui/layouts/app.js';
-    import '/imports/ui/pages/notfound.js';
+    require('/imports/ui/layouts/app.js');
+    require('/imports/ui/pages/notfound.js');
     BlazeLayout.render('layouts_app', { content: 'pages_notfound' });
   },
 };
@@ -9,8 +9,8 @@ FlowRouter.notFound = {
 FlowRouter.route('/', {
   name: 'welcome',
   action() {
-    import '/imports/ui/layouts/app.js';
-    import '/imports/ui/pages/welcome.js';
+    require('/imports/ui/layouts/app.js');
+    require('/imports/ui/pages/welcome.js');
     BlazeLayout.render('layouts_app', { content: 'pages_welcome' });
   },
 });
