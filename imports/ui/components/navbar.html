@@ -13,8 +13,15 @@
 
 <template name="components_sidenav">
   <ul id="nav-mobile" class="side-nav fixed">
+    <li>
+      <div class="nav-logo">
+        <img src="media/logo.svg">
+      </div>
+    </li>
     {{> components_sidenav_links}}
-    <hr>
+    <li>
+      <div class="divider"></div>
+    </li>
     {{> components_sidenav_linksAccount}}
   </ul>
 </template>
