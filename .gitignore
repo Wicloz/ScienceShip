@@ -2,3 +2,4 @@ node_modules/
 designs/*.vpp.lck
 designs/*.vpp.bak_*
 .idea
+settings.json
