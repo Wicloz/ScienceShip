@@ -1,4 +1,5 @@
 FlowRouter.notFound = {
+  name: 'pageNotFound',
   action() {
     require('/imports/ui/layouts/app.js');
     require('/imports/ui/pages/notfound.js');

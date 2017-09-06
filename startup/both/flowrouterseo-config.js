@@ -1,6 +1,6 @@
 SEO = new FlowRouterSEO();
 
 SEO.setDefaults({
-  title: 'ScienceShip',
+  title: Meteor.settings.public.appName,
   description: 'TODO'
 });

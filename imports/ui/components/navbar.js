@@ -5,3 +5,9 @@ Template.components_topnav.onRendered(function () {
     closeOnClick: true
   });
 });
+
+Template.components_topnav.helpers({
+  pageTitle() {
+    return Session.get('PageTitle');
+  }
+});
