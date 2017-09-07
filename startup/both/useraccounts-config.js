@@ -24,6 +24,55 @@ AccountsTemplates.configure({
 
 let passwordField = AccountsTemplates.removeField('password');
 AccountsTemplates.removeField('email');
+
+AccountsTemplates.addField({
+  _id: 'nameFirst',
+  type: 'text',
+  required: true,
+  displayName: 'First Name',
+  placeholder: 'First Name',
+  transform: function (value) {
+    return value.capitalizeWords();
+  }
+});
+AccountsTemplates.addField({
+  _id: 'nameMiddle',
+  type: 'text',
+  required: true,
+  displayName: 'Middle Name(s)',
+  placeholder: 'Middle Name(s)',
+  transform: function (value) {
+    return value.cleanToLower();
+  }
+});
+AccountsTemplates.addField({
+  _id: 'nameLast',
+  type: 'text',
+  required: true,
+  displayName: 'Last Name',
+  placeholder: 'Last Name',
+  transform: function (value) {
+    return value.capitalizeWords();
+  }
+});
+AccountsTemplates.addField({
+  _id: 'studentNumber',
+  type: 'text',
+  required: true,
+  displayName: 'Student Number',
+  placeholder: 'Student Number',
+  re: /^s([0-9]){7}/,
+  errStr: 'Invalid student number',
+  transform: function (value) {
+    return value.replace(/^s*/, 's');
+  }
+});
+AccountsTemplates.addField({
+  _id: 'studentPassword',
+  type: 'password',
+  displayName: 'Leiden University Password',
+  placeholder: 'Leiden University Password'
+});
 AccountsTemplates.addField({
   _id: 'email',
   type: 'email',
@@ -31,8 +80,12 @@ AccountsTemplates.addField({
   displayName: 'Leiden University Umail',
   placeholder: 'Leiden University Umail',
   re: /.+@umail.leidenuniv.nl/,
-  errStr: 'Invalid umail'
+  errStr: 'Invalid umail',
+  transform: function (value) {
+    return value.replace(/@.*$/, '@umail.leidenuniv.nl');
+  }
 });
+
 AccountsTemplates.addField(passwordField);
 
 if (Meteor.isClient) {
