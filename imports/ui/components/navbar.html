@@ -28,24 +28,21 @@
 
 <template name="components_sidenav_links">
   <li class="{{isActiveRoute 'welcome'}}">
-    <a href="{{pathFor 'welcome'}}">Welcome</a>
+    <a href="{{pathFor 'welcome'}}">{{titleFor 'welcome'}}</a>
   </li>
 </template>
 
 <template name="components_sidenav_linksAccount">
   {{#if currentUser}}
-    <li class="{{isActiveRoute 'logout'}}">
-      <a href="{{pathFor 'logout'}}">Log Out</a>
-    </li>
-    <li class="{{isActiveRoute 'account'}}">
-      <a href="{{pathFor 'account'}}">Manage Account</a>
+    <li class="{{isActiveRoute 'logOut'}}">
+      <a href="{{pathFor 'logOut'}}">{{titleFor 'logOut'}}</a>
     </li>
   {{else}}
-    <li class="{{isActiveRoute 'atSignIn'}}">
-      <a href="{{pathFor 'atSignIn'}}">Sign In</a>
+    <li class="{{isActiveRoute 'logIn'}}">
+      <a href="{{pathFor 'logIn'}}">{{titleFor 'logIn'}}</a>
     </li>
-    <li class="{{isActiveRoute 'atSignUp'}}">
-      <a href="{{pathFor 'atSignUp'}}">Register</a>
+    <li class="{{isActiveRoute 'register'}}">
+      <a href="{{pathFor 'register'}}">{{titleFor 'register'}}</a>
     </li>
   {{/if}}
 </template>

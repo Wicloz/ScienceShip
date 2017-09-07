@@ -22,16 +22,30 @@ AccountsTemplates.configure({
 });
 
 if (Meteor.isClient) {
-  AccountsTemplates.configureRoute('changePwd');
-  AccountsTemplates.configureRoute('forgotPwd');
-  AccountsTemplates.configureRoute('resetPwd');
-  AccountsTemplates.configureRoute('signIn');
-  AccountsTemplates.configureRoute('signUp');
-  AccountsTemplates.configureRoute('verifyEmail');
-  AccountsTemplates.configureRoute('resendVerificationEmail');
+  AccountsTemplates.configureRoute('changePwd', {
+    name: 'changePassword'
+  });
+  AccountsTemplates.configureRoute('forgotPwd', {
+    name: 'forgotPassword'
+  });
+  AccountsTemplates.configureRoute('resetPwd', {
+    name: 'resetPassword'
+  });
+  AccountsTemplates.configureRoute('signIn', {
+    name: 'logIn'
+  });
+  AccountsTemplates.configureRoute('signUp', {
+    name: 'register'
+  });
+  AccountsTemplates.configureRoute('verifyEmail', {
+    name: 'verifyEmail'
+  });
+  AccountsTemplates.configureRoute('resendVerificationEmail', {
+    name: 'resendVerificationEmail'
+  });
 
-  FlowRouter.route('/logout', {
-    name: 'logout',
+  FlowRouter.route('/logOut', {
+    name: 'logOut',
     action() {
       AccountsTemplates.logout();
     }
