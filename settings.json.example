@@ -1,5 +1,12 @@
 {
   "public": {
-    "appName": "ScienceShip"
+    "appName": "ScienceShip",
+    "reCaptcha": {
+      "siteKey": "SITE_KEY"
+    }
+  },
+
+  "reCaptcha": {
+    "secretKey": "SECRET_KEY"
   }
 }

@@ -18,8 +18,22 @@ AccountsTemplates.configure({
   positiveValidation: true,
   negativeFeedback: true,
   positiveFeedback: true,
-  showValidating: true
+  showValidating: true,
+  showReCaptcha: true
 });
+
+let passwordField = AccountsTemplates.removeField('password');
+AccountsTemplates.removeField('email');
+AccountsTemplates.addField({
+  _id: 'email',
+  type: 'email',
+  required: true,
+  displayName: 'Leiden University Umail',
+  placeholder: 'Leiden University Umail',
+  re: /.+@umail.leidenuniv.nl/,
+  errStr: 'Invalid umail'
+});
+AccountsTemplates.addField(passwordField);
 
 if (Meteor.isClient) {
   AccountsTemplates.configureRoute('changePwd', {
