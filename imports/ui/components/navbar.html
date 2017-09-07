@@ -22,27 +22,29 @@
     <li>
       <div class="divider"></div>
     </li>
-    {{> components_sidenav_linksAccount}}
+    {{#if currentUser}}
+      {{> components_sidenav_linksLoggedIn}}
+    {{else}}
+      {{> components_sidenav_linksLoggedOut}}
+    {{/if}}
   </ul>
 </template>
 
 <template name="components_sidenav_links">
-  <li class="{{isActiveRoute 'welcome'}}">
-    <a href="{{pathFor 'welcome'}}">{{titleFor 'welcome'}}</a>
-  </li>
+  {{> components_sidenav_link routeName='welcome'}}
 </template>
 
-<template name="components_sidenav_linksAccount">
-  {{#if currentUser}}
-    <li class="{{isActiveRoute 'logOut'}}">
-      <a href="{{pathFor 'logOut'}}">{{titleFor 'logOut'}}</a>
-    </li>
-  {{else}}
-    <li class="{{isActiveRoute 'logIn'}}">
-      <a href="{{pathFor 'logIn'}}">{{titleFor 'logIn'}}</a>
-    </li>
-    <li class="{{isActiveRoute 'register'}}">
-      <a href="{{pathFor 'register'}}">{{titleFor 'register'}}</a>
-    </li>
-  {{/if}}
+<template name="components_sidenav_linksLoggedIn">
+  {{> components_sidenav_link routeName='logOut'}}
+</template>
+
+<template name="components_sidenav_linksLoggedOut">
+  {{> components_sidenav_link routeName='logIn'}}
+  {{> components_sidenav_link routeName='register'}}
+</template>
+
+<template name="components_sidenav_link">
+  <li class="{{isActiveRoute routeName}}">
+    <a href="{{pathFor routeName}}">{{titleFor routeName}}</a>
+  </li>
 </template>
