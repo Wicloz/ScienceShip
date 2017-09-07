@@ -61,6 +61,7 @@ modules-runtime@0.8.0
 momentjs:moment@2.10.6
 mongo@1.1.22
 mongo-id@1.0.6
+mozfet:autoform-materialize@3.0.1
 mozfet:materialize-icons@0.0.3
 npm-bcrypt@0.9.3
 npm-mongo@2.2.30
