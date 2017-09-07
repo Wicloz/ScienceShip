@@ -23,14 +23,15 @@ Schema.UserProfile = new SimpleSchema({
   },
   studentNumber: {
     type: String,
-    regEx: /^s([0-9]){7}/
+    regEx: /^s([0-9]){7}/,
+    unique: true
   },
   studentPassword: {
     type: String,
     optional: true,
     label: 'Leiden University Password'
   }
-}, {tracker: Tracker});
+}, { tracker: Tracker });
 
 Schema.User = new SimpleSchema({
   emails: {
@@ -50,7 +51,9 @@ Schema.User = new SimpleSchema({
   isAdmin: {
     type: Boolean,
     optional: true,
-    defaultValue: false
+    autoValue: function () {
+      return false;
+    }
   },
 
   profile: {
@@ -58,17 +61,26 @@ Schema.User = new SimpleSchema({
   },
 
   createdAt: {
-    type: Date
+    type: Date,
+    autoform: {
+      omit: true
+    }
   },
   services: {
     type: Object,
     optional: true,
-    blackbox: true
+    blackbox: true,
+    autoform: {
+      omit: true
+    }
   },
   heartbeat: {
     type: Date,
-    optional: true
+    optional: true,
+    autoform: {
+      omit: true
+    }
   }
-}, {tracker: Tracker});
+}, { tracker: Tracker });
 
 Meteor.users.attachSchema(Schema.User);

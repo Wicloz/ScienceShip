@@ -111,7 +111,7 @@ if (Meteor.isClient) {
     name: 'resendVerificationEmail'
   });
 
-  FlowRouter.route('/logOut', {
+  FlowRouter.route('/sign-out', {
     name: 'logOut',
     action() {
       AccountsTemplates.logout();
