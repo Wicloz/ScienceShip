@@ -1,10 +1,8 @@
 import SimpleSchema from 'simpl-schema';
 
-Meteor.users.deny({
-  insert() { return true; },
-  update() { return true; },
-  remove() { return true; },
-});
+if (Meteor.isServer) {
+  require('./server/security.js');
+}
 
 const Schema = {};
 
@@ -38,21 +36,23 @@ Schema.User = new SimpleSchema({
     type: Array,
     minCount: 1
   },
-  "emails.$": {
+  'emails.$': {
     type: Object
   },
-  "emails.$.address": {
+  'emails.$.address': {
     type: String,
     regEx: SimpleSchema.RegEx.EmailWithTLD
   },
-  "emails.$.verified": {
+  'emails.$.verified': {
     type: Boolean
   },
   isAdmin: {
     type: Boolean,
     optional: true,
     autoValue: function () {
-      return false;
+      if (!this.isUpdate && !this.isSet) {
+        return value;
+      }
     }
   },
 

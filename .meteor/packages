@@ -37,3 +37,5 @@ mozfet:autoform-materialize
 mozfet:materialize-icons
 dburles:collection-helpers
 aldeed:schema-index
+mdg:validated-method
+ongoworks:security
