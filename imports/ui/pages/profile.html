@@ -2,7 +2,7 @@
   <div class="container">
     {{#autoForm collection='Meteor.users' doc=currentUser validation='keyup' id='updateProfileForm' type='update'}}
       {{> afQuickField name='profile' omitFields='profile.studentNumber'}}
-      {{> afQuickField name='emails'}}
+      {{> afQuickField name='emails' omitFields='emails.$.verified'}}
       <button type="submit" class="btn waves-effect waves-light">Update Profile</button>
     {{/autoForm}}
   </div>

@@ -44,14 +44,19 @@ Schema.User = new SimpleSchema({
     regEx: SimpleSchema.RegEx.EmailWithTLD
   },
   'emails.$.verified': {
-    type: Boolean
+    type: Boolean,
+    autoValue: function () {
+      if (!this.isSet) {
+        return !!this.isUpdate;
+      }
+    }
   },
   isAdmin: {
     type: Boolean,
     optional: true,
     autoValue: function () {
-      if (!this.isUpdate && !this.isSet) {
-        return value;
+      if (!this.isSet && !this.isUpdate) {
+        return false;
       }
     }
   },
