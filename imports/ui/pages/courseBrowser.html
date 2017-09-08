@@ -2,14 +2,14 @@
   <div class="container">
     <div class="collection">
       {{#each course in courses}}
-        <a href="{{pathFor 'courseBrowser' id=course._id}}" class="collection-item">{{course.name}}</a>
+        <a href="{{pathFor 'viewCourse' _id=course._id}}" class="collection-item">{{course.name}}</a>
       {{else}}
         <a class="collection-item">No Courses</a>
       {{/each}}
     </div>
 
     {{#if currentUser}}
-      {{#autoformMaterializeModalLauncher createNewData}}
+      {{#autoformMaterializeModalLauncher insertCourseData}}
         <a class="btn js-autofrom-materialize-modal-trigger">
           Add Course
         </a>

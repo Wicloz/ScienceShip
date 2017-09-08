@@ -16,7 +16,12 @@ FlowRouter.route('/', {
   },
 });
 
-FlowRouter.route('/courses', {
+const courseRoutes = FlowRouter.group({
+  prefix: '/courses',
+  name: 'courses'
+});
+
+courseRoutes.route('/', {
   name: 'courseBrowser',
   action() {
     require('/imports/ui/layouts/app.js');
@@ -25,12 +30,12 @@ FlowRouter.route('/courses', {
   },
 });
 
-FlowRouter.route('/courses/:id', {
-  name: 'courseBrowser',
+courseRoutes.route('/:_id', {
+  name: 'viewCourse',
   action() {
     require('/imports/ui/layouts/app.js');
-    require('/imports/ui/pages/course.js');
-    BlazeLayout.render('layouts_app', { content: 'pages_course' });
+    require('/imports/ui/pages/courseView.js');
+    BlazeLayout.render('layouts_app', { content: 'pages_courseView' });
   },
 });
 

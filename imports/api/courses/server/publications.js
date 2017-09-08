@@ -1,4 +1,5 @@
 import { Courses } from '../courses.js';
+import SimpleSchema from 'simpl-schema';
 
 Meteor.publish('courses.all', function() {
   return Courses.find();

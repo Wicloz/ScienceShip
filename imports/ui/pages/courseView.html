@@ -1,0 +1,17 @@
+<template name="pages_courseView">
+  <div class="container">
+    <ul class="collection">
+      <li class="collection-item"><strong>Name:</strong> {{course.name}}</li>
+      <li class="collection-item"><strong>Duration:</strong> {{course.duration}} semesters</li>
+      <li class="collection-item"><strong>Type:</strong> {{course.type}}</li>
+    </ul>
+
+    {{#if currentUser}}
+      {{#autoformMaterializeModalLauncher updateCourseData}}
+        <a class="btn js-autofrom-materialize-modal-trigger">
+          Edit Course
+        </a>
+      {{/autoformMaterializeModalLauncher}}
+    {{/if}}
+  </div>
+</template>

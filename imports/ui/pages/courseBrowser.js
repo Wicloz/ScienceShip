@@ -13,7 +13,7 @@ Template.pages_courseBrowser.onCreated(function () {
 });
 
 Template.pages_courseBrowser.helpers({
-  createNewData() {
+  insertCourseData() {
     return {
       id: 'insertCourseModal',
       collection: 'Courses',
@@ -24,6 +24,8 @@ Template.pages_courseBrowser.helpers({
   },
 
   courses() {
-    return Courses.find()
+    return Courses.find({}, {
+      sort: {name: 1}
+    })
   }
 });
