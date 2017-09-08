@@ -1,12 +1,38 @@
 import SimpleSchema from 'simpl-schema';
 
+// Security
 if (Meteor.isServer) {
-  require('./server/security.js');
+  Security.defineMethod('ifIsCurrentUser', {
+    fetch: [],
+    transform: null,
+    allow(type, arg, userId, doc) {
+      return userId === doc._id;
+    },
+  });
+
+  Security.defineMethod('noPropDeep', {
+    fetch: [],
+    transform: null,
+    allow(type, arg, userId, doc, modified, modifier) {
+      let present = false;
+      for (const key in modifier) {
+        if (!modifier.hasOwnProperty(key)) continue;
+        if (modifier[key].hasOwnProperty(arg)) {
+          present = true;
+        }
+      }
+      return !present;
+    },
+  });
+
+  Meteor.users.permit(['insert', 'update', 'remove']).never().allowInClientCode();
+  Meteor.users.permit('update').ifIsCurrentUser().onlyProps(['profile', 'emails']).noPropDeep('profile.studentNumber').allowInClientCode();
 }
 
-const Schema = {};
+// Schemas
+const Schemas = {};
 
-Schema.UserProfile = new SimpleSchema({
+Schemas.UserProfile = new SimpleSchema({
   nameFirst: {
     type: String,
     label: 'First Name'
@@ -31,7 +57,7 @@ Schema.UserProfile = new SimpleSchema({
   }
 }, { tracker: Tracker });
 
-Schema.User = new SimpleSchema({
+Schemas.User = new SimpleSchema({
   emails: {
     type: Array,
     minCount: 1
@@ -62,7 +88,7 @@ Schema.User = new SimpleSchema({
   },
 
   profile: {
-    type: Schema.UserProfile
+    type: Schemas.UserProfile
   },
 
   createdAt: {
@@ -88,4 +114,4 @@ Schema.User = new SimpleSchema({
   }
 }, { tracker: Tracker });
 
-Meteor.users.attachSchema(Schema.User);
+Meteor.users.attachSchema(Schemas.User);
