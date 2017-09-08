@@ -1,7 +1,7 @@
 @import "{}/client/_vars.scss";
 
 header, main, footer {
-  padding-left: 300px;
+  padding-left: $sidenav-width;
 }
 
 @media only screen and (max-width : 992px) {
