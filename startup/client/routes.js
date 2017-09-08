@@ -16,6 +16,24 @@ FlowRouter.route('/', {
   },
 });
 
+FlowRouter.route('/courses', {
+  name: 'courseBrowser',
+  action() {
+    require('/imports/ui/layouts/app.js');
+    require('/imports/ui/pages/courseBrowser.js');
+    BlazeLayout.render('layouts_app', { content: 'pages_courseBrowser' });
+  },
+});
+
+FlowRouter.route('/courses/:id', {
+  name: 'courseBrowser',
+  action() {
+    require('/imports/ui/layouts/app.js');
+    require('/imports/ui/pages/course.js');
+    BlazeLayout.render('layouts_app', { content: 'pages_course' });
+  },
+});
+
 FlowRouter.route('/profile', {
   name: 'manageProfile',
   triggersEnter: [AccountsTemplates.ensureSignedIn],
