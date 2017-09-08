@@ -23,7 +23,7 @@ Schema.UserProfile = new SimpleSchema({
   },
   studentNumber: {
     type: String,
-    regEx: /^s([0-9]){7}/,
+    regEx: /^s([0-9]){7}$/,
     unique: true
   },
   studentPassword: {

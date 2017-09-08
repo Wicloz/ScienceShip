@@ -61,7 +61,7 @@ AccountsTemplates.addField({
   required: true,
   displayName: 'Student Number',
   placeholder: 'Student Number',
-  re: /^s([0-9]){7}/,
+  re: /^s([0-9]){7}$/,
   errStr: 'Invalid student number',
   transform: function (value) {
     return value.replace(/^s*/, 's');
