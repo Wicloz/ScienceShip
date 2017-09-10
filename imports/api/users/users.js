@@ -32,31 +32,6 @@ if (Meteor.isServer) {
 // Schemas
 const Schemas = {};
 
-Schemas.UserProfile = new SimpleSchema({
-  nameFirst: {
-    type: String,
-    label: 'First Name'
-  },
-  nameMiddle: {
-    type: String,
-    label: 'Middle Name(s)'
-  },
-  nameLast: {
-    type: String,
-    label: 'Last Name'
-  },
-  studentNumber: {
-    type: String,
-    regEx: /^s([0-9]){7}$/,
-    unique: true
-  },
-  studentPassword: {
-    type: String,
-    optional: true,
-    label: 'Leiden University Password'
-  }
-}, { tracker: Tracker });
-
 Schemas.User = new SimpleSchema({
   emails: {
     type: Array,
@@ -88,7 +63,29 @@ Schemas.User = new SimpleSchema({
   },
 
   profile: {
-    type: Schemas.UserProfile
+    type: Object
+  },
+  'profile.nameFirst': {
+    type: String,
+    label: 'First Name'
+  },
+  'profile.nameMiddle': {
+    type: String,
+    label: 'Middle Name(s)'
+  },
+  'profile.nameLast': {
+    type: String,
+    label: 'Last Name'
+  },
+  'profile.studentNumber': {
+    type: String,
+    regEx: /^s([0-9]){7}$/,
+    unique: true
+  },
+  'profile.studentPassword': {
+    type: String,
+    optional: true,
+    label: 'Leiden University Password'
   },
 
   createdAt: {

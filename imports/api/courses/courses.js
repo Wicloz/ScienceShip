@@ -25,6 +25,6 @@ Schemas.Course = new SimpleSchema({
     type: String,
     allowedValues: ['Bachelor', 'Master', 'Minor', 'Other']
   }
-});
+}, { tracker: Tracker });
 
 Courses.attachSchema(Schemas.Course)
