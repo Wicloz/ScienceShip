@@ -13,12 +13,7 @@
 
 <template name="components_sidenav">
   <ul id="nav-mobile" class="side-nav fixed">
-    <li>
-      <div class="nav-logo">
-        <img src="media/logo.svg">
-      </div>
-    </li>
-    {{> components_sidenav_links}}
+    {{> components_sidenav_linksPublic}}
     <li>
       <div class="divider"></div>
     </li>
@@ -30,7 +25,7 @@
   </ul>
 </template>
 
-<template name="components_sidenav_links">
+<template name="components_sidenav_linksPublic">
   {{> components_sidenav_link routeName='welcome'}}
   {{> components_sidenav_link routeName='courseBrowser' extraActiveRoute1='viewCourse'}}
 </template>
