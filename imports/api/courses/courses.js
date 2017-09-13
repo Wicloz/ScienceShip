@@ -13,6 +13,10 @@ if (Meteor.isServer) {
 const Schemas = {};
 
 Schemas.Course = new SimpleSchema({
+  type: {
+    type: String,
+    allowedValues: ['Bachelor', 'Master', 'Minor', 'Other']
+  },
   name: {
     type: String
   },
@@ -20,11 +24,12 @@ Schemas.Course = new SimpleSchema({
     type: SimpleSchema.Integer,
     min: 1,
     label: 'Duration in Semesters'
-  },
-  type: {
-    type: String,
-    allowedValues: ['Bachelor', 'Master', 'Minor', 'Other']
   }
 }, { tracker: Tracker });
 
 Courses.attachSchema(Schemas.Course);
+
+// Window
+if (Meteor.isClient) {
+  window.Courses = Courses;
+}

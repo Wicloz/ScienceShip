@@ -1,7 +1,6 @@
 import './subjectBrowser.html';
 
 import { Subjects } from '/imports/api/subjects/subjects.js';
-window.Subjects = Subjects;
 
 Template.pages_subjectBrowser.onCreated(function () {
   Session.set('PageTitle', 'Subject Browser');
@@ -27,5 +26,18 @@ Template.pages_subjectBrowser.helpers({
     return Subjects.find({}, {
       sort: {name: 1}
     })
+  }
+});
+
+Template.pages_subjectBrowser_subjectRow.events({
+  'click .subjectRow'(event) {
+    if (event.which === 1) {
+      FlowRouter.go('viewSubject', {'_id': this._id});
+    }
+  },
+  'auxclick .subjectRow'(event) {
+    if (event.which === 2) {
+      window.open(FlowRouter.path('viewSubject', {'_id': this._id}), '_blank');
+    }
   }
 });

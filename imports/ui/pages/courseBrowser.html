@@ -1,12 +1,19 @@
 <template name="pages_courseBrowser">
   <div class="container">
-    <div class="collection">
-      {{#each course in courses}}
-        <a href="{{pathFor 'viewCourse' _id=course._id}}" class="collection-item">{{course.name}}</a>
-      {{else}}
-        <a class="collection-item">No Courses</a>
-      {{/each}}
-    </div>
+    <table class="highlight responsive-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each course in courses}}
+          {{> pages_courseBrowser_courseRow course}}
+        {{/each}}
+      </tbody>
+    </table>
 
     {{#if currentUser}}
       {{#autoformMaterializeModalLauncher insertCourseData}}
@@ -16,4 +23,12 @@
       {{/autoformMaterializeModalLauncher}}
     {{/if}}
   </div>
+</template>
+
+<template name="pages_courseBrowser_courseRow">
+  <tr class="courseRow">
+    <td>{{type}}</td>
+    <td>{{name}}</td>
+    <td>{{duration}}</td>
+  </tr>
 </template>

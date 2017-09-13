@@ -26,3 +26,8 @@ Schemas.Subject = new SimpleSchema({
 }, { tracker: Tracker });
 
 Subjects.attachSchema(Schemas.Subject);
+
+// Window
+if (Meteor.isClient) {
+  window.Subjects = Subjects;
+}

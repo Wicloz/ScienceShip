@@ -1,12 +1,19 @@
 <template name="pages_subjectBrowser">
   <div class="container">
-    <div class="collection">
-      {{#each subject in subjects}}
-        <a href="{{pathFor 'viewSubject' _id=subject._id}}" class="collection-item">{{subject.name}}</a>
-      {{else}}
-        <a class="collection-item">No Subjects</a>
-      {{/each}}
-    </div>
+    <table class="highlight responsive-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Semester</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each subject in subjects}}
+          {{> pages_subjectBrowser_subjectRow subject}}
+        {{/each}}
+      </tbody>
+    </table>
 
     {{#if currentUser}}
       {{#autoformMaterializeModalLauncher insertSubjectData}}
@@ -16,4 +23,12 @@
       {{/autoformMaterializeModalLauncher}}
     {{/if}}
   </div>
+</template>
+
+<template name="pages_subjectBrowser_subjectRow">
+  <tr class="subjectRow">
+    <td>{{name}}</td>
+    <td>{{year}}</td>
+    <td>{{semester}}</td>
+  </tr>
 </template>
