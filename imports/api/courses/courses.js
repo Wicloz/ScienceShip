@@ -27,4 +27,4 @@ Schemas.Course = new SimpleSchema({
   }
 }, { tracker: Tracker });
 
-Courses.attachSchema(Schemas.Course)
+Courses.attachSchema(Schemas.Course);

@@ -1,0 +1,17 @@
+<template name="pages_subjectView">
+  <div class="container">
+    <ul class="collection">
+      <li class="collection-item"><strong>Name:</strong> {{subject.name}}</li>
+      <li class="collection-item"><strong>Year:</strong> {{subject.year}}</li>
+      <li class="collection-item"><strong>Semester:</strong> {{subject.semester}}</li>
+    </ul>
+
+    {{#if currentUser}}
+      {{#autoformMaterializeModalLauncher updateSubjectData}}
+        <a class="btn js-autofrom-materialize-modal-trigger">
+          Edit Subject
+        </a>
+      {{/autoformMaterializeModalLauncher}}
+    {{/if}}
+  </div>
+</template>

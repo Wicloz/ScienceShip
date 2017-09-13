@@ -1,0 +1,19 @@
+<template name="pages_subjectBrowser">
+  <div class="container">
+    <div class="collection">
+      {{#each subject in subjects}}
+        <a href="{{pathFor 'viewSubject' _id=subject._id}}" class="collection-item">{{subject.name}}</a>
+      {{else}}
+        <a class="collection-item">No Subjects</a>
+      {{/each}}
+    </div>
+
+    {{#if currentUser}}
+      {{#autoformMaterializeModalLauncher insertSubjectData}}
+        <a class="btn js-autofrom-materialize-modal-trigger">
+          Add Subject
+        </a>
+      {{/autoformMaterializeModalLauncher}}
+    {{/if}}
+  </div>
+</template>

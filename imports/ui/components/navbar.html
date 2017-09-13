@@ -27,7 +27,8 @@
 
 <template name="components_sidenav_linksPublic">
   {{> components_sidenav_link routeName='welcome'}}
-  {{> components_sidenav_link routeName='courseBrowser' extraActiveRoute1='viewCourse'}}
+  {{> components_sidenav_link routeName='courseBrowser'}}
+  {{> components_sidenav_link routeName='subjectBrowser'}}
 </template>
 
 <template name="components_sidenav_linksLoggedIn">
@@ -42,11 +43,7 @@
 </template>
 
 <template name="components_sidenav_link">
-  <li class="{{isActiveRoute routeName}}
-    {{#if extraActiveRoute1}}
-      {{isActiveRoute extraActiveRoute1}}
-    {{/if}}
-  ">
+  <li class="{{isActiveRoute routeName}}">
     <a href="{{pathFor routeName}}">{{titleFor routeName}}</a>
   </li>
 </template>
