@@ -24,7 +24,6 @@ AccountsTemplates.configure({
 
 let passwordField = AccountsTemplates.removeField('password');
 AccountsTemplates.removeField('email');
-
 AccountsTemplates.addField({
   _id: 'nameFirst',
   type: 'text',
@@ -85,7 +84,6 @@ AccountsTemplates.addField({
     return value.replace(/@.*$/, '@umail.leidenuniv.nl');
   }
 });
-
 AccountsTemplates.addField(passwordField);
 
 if (Meteor.isClient) {
