@@ -1,19 +1,6 @@
 <template name="pages_subjectBrowser">
   <div class="container">
-    <table class="highlight responsive-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Year</th>
-          <th>Semester</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each subject in subjects}}
-          {{> pages_subjectBrowser_subjectRow subject}}
-        {{/each}}
-      </tbody>
-    </table>
+    {{> components_subjectList subjects}}
 
     {{#if currentUser}}
       {{#autoformMaterializeModalLauncher insertSubjectData}}
@@ -23,12 +10,4 @@
       {{/autoformMaterializeModalLauncher}}
     {{/if}}
   </div>
-</template>
-
-<template name="pages_subjectBrowser_subjectRow">
-  <tr class="subjectRow">
-    <td>{{name}}</td>
-    <td>{{year}}</td>
-    <td>{{semester}}</td>
-  </tr>
 </template>

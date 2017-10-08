@@ -1,0 +1,24 @@
+<template name="components_courseList">
+  <table class="highlight responsive-table">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each course in this}}
+        {{> components_courseList_courseRow course}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="components_courseList_courseRow">
+  <tr class="courseRow">
+    <td>{{type}}</td>
+    <td>{{name}}</td>
+    <td>{{duration}}</td>
+  </tr>
+</template>

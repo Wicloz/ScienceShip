@@ -1,19 +1,6 @@
 <template name="pages_courseBrowser">
   <div class="container">
-    <table class="highlight responsive-table">
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Name</th>
-          <th>Duration</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each course in courses}}
-          {{> pages_courseBrowser_courseRow course}}
-        {{/each}}
-      </tbody>
-    </table>
+    {{> components_courseList courses}}
 
     {{#if currentUser}}
       {{#autoformMaterializeModalLauncher insertCourseData}}
@@ -23,12 +10,4 @@
       {{/autoformMaterializeModalLauncher}}
     {{/if}}
   </div>
-</template>
-
-<template name="pages_courseBrowser_courseRow">
-  <tr class="courseRow">
-    <td>{{type}}</td>
-    <td>{{name}}</td>
-    <td>{{duration}}</td>
-  </tr>
 </template>

@@ -1,0 +1,24 @@
+<template name="components_subjectList">
+  <table class="highlight responsive-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Semester</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each subject in this}}
+        {{> components_subjectList_subjectRow subject}}
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="components_subjectList_subjectRow">
+  <tr class="subjectRow">
+    <td>{{name}}</td>
+    <td>{{year}}</td>
+    <td>{{semester}}</td>
+  </tr>
+</template>
