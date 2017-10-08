@@ -24,8 +24,6 @@ Template.pages_courseBrowser.helpers({
   },
 
   courses() {
-    return Courses.find({}, {
-      sort: {name: 1}
-    })
+    return Courses.find();
   }
 });

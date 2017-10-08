@@ -24,8 +24,6 @@ Template.pages_subjectBrowser.helpers({
   },
 
   subjects() {
-    return Subjects.find({}, {
-      sort: {name: 1}
-    })
+    return Subjects.find();
   }
 });
