@@ -1,7 +1,6 @@
 import './courseView.html';
 
 import { Courses } from '/imports/api/courses/courses.js';
-window.Courses = Courses;
 
 Template.pages_courseView.onCreated(function () {
   this.autorun(() => {

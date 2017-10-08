@@ -1,7 +1,6 @@
 import './subjectView.html';
 
 import { Subjects } from '/imports/api/subjects/subjects.js';
-window.Subjects = Subjects;
 
 Template.pages_subjectView.onCreated(function () {
   this.autorun(() => {
