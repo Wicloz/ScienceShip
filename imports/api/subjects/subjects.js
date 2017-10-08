@@ -21,11 +21,34 @@ Schemas.Subject = new SimpleSchema({
   },
   semester: {
     type: String,
-    allowedValues: ['Autumn/Winter', 'Spring/Summer']
+    allowedValues: ['First', 'Second'],
+    autoform: {
+      afFieldInput: {
+        options: function () {
+          return {
+            'Spring': 'First',
+            'Autumn': 'Second'
+          };
+        }
+      }
+    }
   }
 }, { tracker: Tracker });
 
 Subjects.attachSchema(Schemas.Subject);
+
+// Helpers
+Subjects.helpers({
+  getSemester() {
+    if (this.semester === 'First') {
+      return 'Spring';
+    }
+    else if (this.semester === 'Second') {
+      return 'Autumn';
+    }
+    return this.semester;
+  }
+});
 
 // Window
 if (Meteor.isClient) {
