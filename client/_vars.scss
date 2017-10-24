@@ -2,10 +2,10 @@
 @import "../node_modules/materialize-css/sass/components/_color.scss";
 
 // Colors
-$primary-color: #0C2577 !default;
+$primary-color: #001158 !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
-$secondary-color: #0C2577 !default;
+$secondary-color: #001158 !default;
 $link-color: color("light-blue", "darken-1") !default;
 
 // Side Navigation
