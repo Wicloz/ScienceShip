@@ -1,7 +1,16 @@
 import SimpleSchema from 'simpl-schema';
+import { Courses } from '/imports/api/courses/courses.js';
+import { SubjectsCourses } from "/imports/api/subjects_courses/subjects_courses";
 
 // Collection
-export const Subjects = new Mongo.Collection("subjects");
+class SubjectsCollection extends Mongo.Collection {
+  remove(selector, callback) {
+    SubjectsCourses.remove({subject_id: selector});
+    return super.remove(selector, callback);
+  }
+}
+
+export const Subjects = new SubjectsCollection('subjects');
 
 // Security
 if (Meteor.isServer) {
@@ -39,6 +48,12 @@ Subjects.attachSchema(Schemas.Subject);
 
 // Helpers
 Subjects.helpers({
+  courses() {
+    return Courses.find({
+
+    });
+  },
+
   getSemester() {
     if (this.semester === 'First') {
       return 'Spring';

@@ -1,7 +1,16 @@
 import SimpleSchema from 'simpl-schema';
+import { Subjects } from '/imports/api/subjects/subjects.js';
+import { SubjectsCourses } from "/imports/api/subjects_courses/subjects_courses";
 
 // Collection
-export const Courses = new Mongo.Collection("courses");
+class CoursesCollection extends Mongo.Collection {
+  remove(selector, callback) {
+    SubjectsCourses.remove({course_id: selector});
+    return super.remove(selector, callback);
+  }
+}
+
+export const Courses = new CoursesCollection('courses');
 
 // Security
 if (Meteor.isServer) {
@@ -28,6 +37,15 @@ Schemas.Course = new SimpleSchema({
 }, { tracker: Tracker });
 
 Courses.attachSchema(Schemas.Course);
+
+// Helpers
+Courses.helpers({
+  subjects() {
+    return Subjects.find({
+
+    });
+  }
+});
 
 // Window
 if (Meteor.isClient) {

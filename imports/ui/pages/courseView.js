@@ -1,10 +1,12 @@
 import './courseView.html';
 
+import '../components/subjectList.js';
 import { Courses } from '/imports/api/courses/courses.js';
 
 Template.pages_courseView.onCreated(function () {
   this.autorun(() => {
     this.subscribe('courses.one', FlowRouter.getParam('_id'));
+    this.subscribe('subjects.all');
 
     if (this.subscriptionsReady()) {
       Session.set('PageTitle', Courses.findOne({ _id: FlowRouter.getParam('_id') }).name);
